@@ -4,6 +4,7 @@ import { getTeamNames } from '../api'
 import { Route, Link }  from 'react-router-dom'
 import TeamLogo from './TeamLogo'
 import Team from './Team'
+import Loading from './Loading'
 
 class Teams extends React.Component{
   state = {
@@ -39,7 +40,7 @@ class Teams extends React.Component{
           <div className = 'panel'>
             <Team id = { match.params.teamId } >
               {(team) => team === null 
-                ? <h1>Loading</h1>
+                ? <Loading />
                 : <div style = {{width:'100%'}}>
                     <TeamLogo id = {team.id} className = 'center' />
                     <h1 className = 'medium-header'>{team.name}</h1>
